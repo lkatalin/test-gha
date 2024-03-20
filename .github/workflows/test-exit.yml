@@ -20,12 +20,12 @@ jobs:
         run: |
           echo "Attempting to exit with 0"
           exit 0
-      - name: Attempt-exit-2
+      - name: Attempt-exit-5
         id: exit-2
         run: |
-          echo "Exit 0 didn't work, attempting exit 2"
-          echo "exit=2"  >> $GITHUB_OUTPUT
-          exit 2
+          echo "Exit 0 didn't work, attempting exit 5"
+          echo "exit=5"  >> $GITHUB_OUTPUT
+          exit 5
       - name: Both-did-not-work
         run: |
           echo "Neither exit 0 nor exit 1 worked, so now we are here"
