@@ -20,8 +20,8 @@ jobs:
           exit 0
       - name: Attempt-exit-1
         run: |
-          echo "Exit 0 didn't work, attempting exit 1"
-          exit 1
+          echo "Exit 0 didn't work, attempting exit 2"
+          exit 2
       - name: Both-did-not-work
         run: |
           echo "Neither exit 0 nor exit 1 worked, so now we are here"
