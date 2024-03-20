@@ -11,7 +11,7 @@ jobs:
     permissions:
       id-token: 'write'
     outputs:
-      exit: ${{ steps.Attempt-exit-2.outputs.exit }}
+      exit: ${{ steps.exit-2.outputs.exit }}
     steps:
       - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
@@ -21,6 +21,7 @@ jobs:
           echo "Attempting to exit with 0"
           exit 0
       - name: Attempt-exit-2
+        id: exit-2
         run: |
           echo "Exit 0 didn't work, attempting exit 2"
           echo "exit=2"  >> $GITHUB_OUTPUT
