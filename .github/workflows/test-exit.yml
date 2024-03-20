@@ -1,4 +1,4 @@
-name: Sync Repository Main Branch with both GCS Preprod and Prod Buckets
+name: This is a test workflow
 
 on:
   push:
