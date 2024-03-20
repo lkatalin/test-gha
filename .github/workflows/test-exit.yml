@@ -37,7 +37,7 @@ jobs:
       steps:
         - name: Echo on failed
           run: |
-            echo "This output is only present if the exit code was 2"
+            echo "This output is only present if the exit code was 2: $GITHUB_OUTPUT"
   
   if-failed-other:
       runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
       steps:
         - name: Echo on failed
           run: |
-            echo "This output is only present if the exit code was other"
+            echo "This output is only present if the exit code was other: $GITHUB_OUTPUT"
