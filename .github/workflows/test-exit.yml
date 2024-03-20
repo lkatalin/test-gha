@@ -1,0 +1,27 @@
+name: Sync Repository Main Branch with both GCS Preprod and Prod Buckets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  onlyjob:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: 'write'
+    steps:
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        with:
+          fetch-depth: 0
+      - name: Attempt-exit-0
+        run: |
+          echo "Attempting to exit with 0"
+          exit 0
+      - name: Attempt-exit-1
+        run: |
+          echo "Exit 0 didn't work, attempting exit 1"
+          exit 1
+      - name: Both-did-not-work
+        run: |
+          echo "Neither exit 0 nor exit 1 worked, so now we are here"
