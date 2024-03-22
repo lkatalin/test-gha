@@ -11,7 +11,7 @@ jobs:
           check_one() {
             if [[ $1 == 1 ]]; then
               echo "the result was one"
-              echo "abort=true" >> $GITHUB_OUTPUT
+              echo "abort=yes" >> $GITHUB_OUTPUT
             fi;
           }
 
@@ -20,8 +20,8 @@ jobs:
           check_one $NUM
           echo "gh output = $GITHUB_OUTPUT"
       - name: execute-if-zero
-        if: steps.generator.outputs.abort != true
+        if: steps.generator.outputs.abort != yes
         run: echo "Executing because result was zero"
       - name: execute-if-one
-        if: steps.generator.outputs.abort == true
+        if: steps.generator.outputs.abort == yes
         run: echo "Executing because result was one"
