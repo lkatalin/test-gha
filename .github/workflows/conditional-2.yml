@@ -20,8 +20,8 @@ jobs:
           check_one $NUM
           echo "gh output = $GITHUB_OUTPUT"
       - name: execute-if-zero
-        if: steps.generator.outputs.abort != "yes"
+        if: steps.generator.outputs.abort != 'yes'
         run: echo "Executing because result was zero"
       - name: execute-if-one
-        if: steps.generator.outputs.abort == "yes"
+        if: steps.generator.outputs.abort == 'yes'
         run: echo "Executing because result was one"
