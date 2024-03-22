@@ -7,10 +7,10 @@ jobs:
       - id: generator
         run: echo "num=$(($RANDOM % 2))"
       - name: echo-zero
-        if: ${{ steps.generator.outputs.num == 0 }}
-        #if: steps.generator.outputs.num == 0
+        #if: ${{ steps.generator.outputs.num == 0 }}
+        if: steps.generator.outputs.num == 0
         run: echo zero
       - name: echo-one
-        if: ${{ steps.generator.outputs.num == 1 }}
-        #if: steps.generator.outputs.num == 1
+        #if: ${{ steps.generator.outputs.num == 1 }}
+        if: steps.generator.outputs.num == 1
         run: echo one
