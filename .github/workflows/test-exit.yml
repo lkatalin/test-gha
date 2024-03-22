@@ -30,6 +30,11 @@ jobs:
       - name: Both-did-not-work
         run: |
           echo "Neither exit 0 nor exit 1 worked, so now we are here"
+      - name: do-not-run-step
+        #if: ${{ exit-2.outputs.exit == 2 }}
+        if: steps.exit-2.outputs.exit == 2
+        run: | 
+          echo "I am not supposed to run"
 
   if-failed-2:
       runs-on: ubuntu-latest
