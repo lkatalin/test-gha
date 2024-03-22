@@ -7,7 +7,9 @@ jobs:
       num: ${{ steps.generator.outputs.num }}
     steps:
       - id: generator
-        run: echo "num=$(($RANDOM % 2))"
+        run: |
+          echo "num=$(($RANDOM % 2))"
+          echo "num=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
       - name: echo-zero
         #if: ${{ steps.generator.outputs.num == 0 }}
         if: steps.generator.outputs.num == 0
