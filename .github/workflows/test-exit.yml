@@ -32,16 +32,18 @@ jobs:
         run: |
           echo "Neither exit 0 nor exit 1 worked, so now we are here"
       - name: run-if-exit-2
-        #if: ${{ exit-2.outputs.exit == 2 }}
-        if: steps.exit-2.outputs.exit == 2
+        if: ${{ exit-2.outputs.exit == 2 }}
+        #if: steps.exit-2.outputs.exit == 2
         run: | 
           echo "I am running if exit was 2"
       - name: run-if-exit-5
-        if: steps.exit-2.outputs.exit == 5
+        #if: steps.exit-2.outputs.exit == 5
+        if: ${{ exit-2.outputs.exit == 5 }}
         run: |
           echo "I am running if exit was 5"
       - name: run-if-exit-not-2
-        if: steps.exit-2.outputs.exit != 2
+        #if: steps.exit-2.outputs.exit != 2
+        if: ${{ exit-2.outputs.exit != 2 }}
         run: |
           echo "I am running if exit was not 2"
 
