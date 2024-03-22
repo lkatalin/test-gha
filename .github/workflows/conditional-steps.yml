@@ -3,13 +3,14 @@ on: push
 jobs:
   number_generator:
     runs-on: ubuntu-latest
-    outputs:
-      num: ${{ steps.generator.outputs.num }}
+      #outputs:
+      #num: ${{ steps.generator.outputs.num }}
     steps:
       - id: generator
         run: |
-          echo "num=$(($RANDOM % 2))"
-          echo "num=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+          #echo "num=$(($RANDOM % 2))"
+          #echo "num=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+          echo "num=1"
       - name: echo-zero
         #if: ${{ steps.generator.outputs.num == 0 }}
         if: steps.generator.outputs.num == 0
