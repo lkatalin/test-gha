@@ -3,6 +3,8 @@ on: push
 jobs:
   number_generator:
     runs-on: ubuntu-latest
+    outputs:
+      num: ${{ steps.generator.outputs.num }}
     steps:
       - id: generator
         run: echo "num=$(($RANDOM % 2))"
