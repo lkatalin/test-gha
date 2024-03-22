@@ -9,8 +9,8 @@ jobs:
       - id: generator
         run: |
           export NUM=$(($RANDOM % 2))
-          echo $NUM
-          echo $NUM >> $GITHUB_OUTPUT
+          echo "num=$NUM"
+          echo "num=$NUM" >> $GITHUB_OUTPUT
           #echo "num=1"
           #echo "num=7" >> $GITHUB_OUTPUT
       - name: echo-zero
