@@ -4,7 +4,7 @@ jobs:
   number_generator:
     runs-on: ubuntu-latest
     outputs:
-    num: ${{ steps.generator.outputs.num }}
+      num: ${{ steps.generator.outputs.num }}
     steps:
       - id: generator
         run: |
