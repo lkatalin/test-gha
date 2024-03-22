@@ -12,6 +12,7 @@ jobs:
             if [[ $1 == 1]]; then
               echo "the result was one"
               echo "abort=true" >> $GITHUB_OUTPUT
+            fi;
           }
 
           export NUM=$(($RANDOM % 2))
