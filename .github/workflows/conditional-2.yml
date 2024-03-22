@@ -1,0 +1,25 @@
+name: Conditional Workflow 2
+on: push
+jobs:
+  number_generator:
+    runs-on: ubuntu-latest
+    outputs:
+      abort: ${{ steps.generator.outputs.abort }}
+    steps:
+      - id: generator
+        run: |
+          check_one() {
+            if [[ $1 == 1]]; then
+              echo "the result was one"
+              echo "abort=true" >> $GITHUB_OUTPUT
+          }
+
+          export NUM=$(($RANDOM % 2))
+          echo "num=$NUM"
+          do check_one $NUM
+      - name: execute-if-zero
+        if: steps.generator.outputs.abort != true
+        run: echo "Executing because result was zero"
+      - name: execute-if-one
+        if: steps.generator.outputs.abort == true
+        run: echo "Executing because result was one"
