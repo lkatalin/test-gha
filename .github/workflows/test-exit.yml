@@ -26,6 +26,7 @@ jobs:
         run: |
           echo "Exit 0 didn't work, attempting exit 5"
           echo "exit=5"  >> $GITHUB_OUTPUT
+          echo "exit=5"
           exit 5
       - name: Both-did-not-work
         run: |
@@ -40,7 +41,7 @@ jobs:
         run: |
           echo "I am running if exit was 5"
       - name: run-if-exit-not-2
-        if: steps.exit-2.outputs-exit != 2
+        if: steps.exit-2.outputs.exit != 2
         run: |
           echo "I am running if exit was not 2"
 
