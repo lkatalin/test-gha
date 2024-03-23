@@ -20,10 +20,10 @@ jobs:
           check_one $NUM
           echo "gh output = $GITHUB_OUTPUT"
       - name: execute-if-zero
-        if: ${{ env.ABORT != 'true' }}
+        if: ${{ env.abort != 'true' }}
         #if: steps.generator.outputs.abort != 'true'
         run: echo "Executing because result was zero"
       - name: execute-if-one
-        if: ${{ env.ABORT == 'true' }}
+        if: ${{ env.abort == 'true' }}
         #if: steps.generator.outputs.abort == 'true'
         run: echo "Aborting because result was one"
