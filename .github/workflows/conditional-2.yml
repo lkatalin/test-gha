@@ -3,8 +3,8 @@ on: push
 jobs:
   number_generator:
     runs-on: ubuntu-latest
-    outputs:
-      abort: ${{ steps.generator.outputs.abort }}
+      #outputs:
+      #abort: ${{ steps.generator.outputs.abort }}
     steps:
       - id: generator
         run: |
@@ -20,8 +20,10 @@ jobs:
           check_one $NUM
           echo "gh output = $GITHUB_OUTPUT"
       - name: execute-if-zero
-        if: steps.generator.outputs.abort != 'true'
+        if: ${{ env.ABORT != 'true' }}
+        #if: steps.generator.outputs.abort != 'true'
         run: echo "Executing because result was zero"
       - name: execute-if-one
-        if: steps.generator.outputs.abort == 'true'
-        run: echo "Executing because result was one"
+        if: ${{ env.ABORT == 'true' }}
+        #if: steps.generator.outputs.abort == 'true'
+        run: echo "Aborting because result was one"
