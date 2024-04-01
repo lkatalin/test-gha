@@ -3,8 +3,6 @@ on: push
 jobs:
   number_generator:
     runs-on: ubuntu-latest
-      #outputs:
-      #abort: ${{ steps.generator.outputs.abort }}
     steps:
       - id: generator
         run: |
@@ -15,6 +13,7 @@ jobs:
             fi;
           }
 
+          echo "abort=false" >> $GITHUB_OUTPUT
           export NUM=$(($RANDOM % 2))
           echo "num=$NUM"
           check_one $NUM
