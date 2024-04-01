@@ -18,12 +18,12 @@ jobs:
           echo "num=$NUM"
           check_one $NUM
       - name: execute-if-zero
-        if: steps.check-updated-files.outputs.abort = false
+        if: steps.check-updated-files.outputs.abort == false
         #if: ${{ ! steps.generator.outputs.abort }}
         #if: steps.generator.outputs.abort != 'true'
         run: echo "Executing because result was zero"
       - name: execute-if-one
-        if: steps.check-updated-files.outputs.abort = true
+        if: steps.check-updated-files.outputs.abort == true
         #if: ${{ steps.generator.outputs.abort }}
         #if: steps.generator.outputs.abort == 'true'
         run: echo "Aborting because result was one"
