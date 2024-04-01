@@ -18,7 +18,8 @@ jobs:
           echo "num=$NUM"
           check_one $NUM
       - name: execute-if-zero
-        if: ${{ steps.generator.outputs.abort == 'false' }}
+        if: ${{ steps.generator.outputs.abort != 'true' }}
+        #if: ${{ steps.generator.outputs.abort == 'false' }}
         #if: ${{ ! steps.generator.outputs.abort }}
         #if: steps.generator.outputs.abort != 'true'
         run: echo "Executing because result was zero"
